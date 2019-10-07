@@ -10,7 +10,7 @@ You will need to declare a secret of `GH_BOT_TOKEN` in your repo's Settings > Se
 ## Example usage
 
 ```
-- uses: borkweb/action-tribe-phpcs@master
+- uses: moderntribe/action-tribe-phpcs@master
   with:
     github_bot_token: ${{ secrets.GH_BOT_TOKEN }}
 ```
