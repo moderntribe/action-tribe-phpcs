@@ -1,0 +1,12 @@
+name: 'Tribe PHPCS Review'
+description: 'Run a PHPCS code review using phpcs.xml'
+inputs:
+  github-bot-token:
+    description: 'Personal Access Token of user that can execute code reviews'
+    required: true
+    default: ''
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.github-bot-token }}
