@@ -1,21 +1,8 @@
 # action-tribe-phpcs
+
 Modern Tribe's PHPCS Code Review - GitHub Action
 
-## Inputs
-
-### `github-bot-token`
-
-You will need to declare a secret of `GH_BOT_TOKEN` in your repo's Settings > Secrets. The token should be a Personal Access Token (preferably for a bot account) where that bot has access to the relevant repos in the Modern Tribe organization. The Token for tr1b0t is labeled as `tr1b0t GitHub OAuth Token` in our company 1Password vault.
-
-## Example usage
-
-```
-- uses: moderntribe/action-tribe-phpcs@master
-  with:
-    github_bot_token: ${{ secrets.GH_BOT_TOKEN }}
-```
-
-## Preparing your repository
+## Usage
 
 If you would like to add automated code sniffing to PRs on a new repository, there are a few things that must be set up first.
 
@@ -64,4 +51,22 @@ You'll need a `phpcs.xml` file to declare the rulesets the repository will be us
 	<rule ref="WordPress-Docs"></rule>
 	<rule ref="WordPress-Core"></rule>
 </ruleset>
+```
+
+### Adding a GitHub Workflow
+
+You will need a GitHub Workflow to make this magic happen. You can [read about it](https://help.github.com/en/articles/configuring-a-workflow) in the GitHub docs. You could also just copy the `.github/workflows` directory from [The Events Calendar](https://github.com/moderntribe/the-events-calendar).
+
+#### Inputs
+
+##### `github-bot-token`
+
+You will need to declare a secret of `GH_BOT_TOKEN` in your repo's Settings > Secrets. The token should be a Personal Access Token (preferably for a bot account) where that bot has access to the relevant repos in the Modern Tribe organization. The Token for tr1b0t is labeled as `tr1b0t GitHub OAuth Token` in our company 1Password vault.
+
+#### Example usage
+
+```
+- uses: moderntribe/action-tribe-phpcs@master
+  with:
+    github_bot_token: ${{ secrets.GH_BOT_TOKEN }}
 ```
