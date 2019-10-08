@@ -14,3 +14,54 @@ You will need to declare a secret of `GH_BOT_TOKEN` in your repo's Settings > Se
   with:
     github_bot_token: ${{ secrets.GH_BOT_TOKEN }}
 ```
+
+## Preparing your repository
+
+If you would like to add automated code sniffing to PRs on a new repository, there are a few things that must be set up first.
+
+### Add PHPCS to `composer.json`
+
+For PHPCS to function appropriately, it needs to be included in the repository via composer.
+
+**Within `require-dev`, add the following:**
+
+```
+"require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+    "wp-coding-standards/wpcs": "^2.1",
+    "automattic/vipwpcs": "^2.0",
+    "moderntribe/tribalscents": "dev-master",
+    ...
+}
+```
+
+**Within `repositories`, add the following:**
+
+```
+"repositories": {
+    {
+      "name": "moderntribe/TribalScents",
+      "type": "github",
+      "url": "https://github.com/moderntribe/TribalScents",
+      "no-api": true
+    }
+}
+```
+
+### Create `phpcs.xml`
+
+You'll need a `phpcs.xml` file to declare the rulesets the repository will be using. Here's an example of one that we use for our plugins:
+
+```xml
+<?xml version="1.0"?>
+<ruleset name="Modern Tribe Plugin Coding Standards">
+	<rule ref="TribalScents"></rule>
+	<rule ref="WordPress-VIP-Go"></rule>
+	<rule ref="WordPress">
+		<exclude name="WordPress.Files.FileName"/>
+	</rule>
+	<rule ref="WordPress-Extra"></rule>
+	<rule ref="WordPress-Docs"></rule>
+	<rule ref="WordPress-Core"></rule>
+</ruleset>
+```
