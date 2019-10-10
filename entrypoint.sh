@@ -23,4 +23,4 @@ cd $BOT_WORKSPACE
 ln -s $(which php) /usr/bin/php
 
 # Run codesniffing
-$SCRIPT_PATH/mt-jenkins code-review --repo=$GITHUB_REPOSITORY --pr=$(cat $GITHUB_EVENT_PATH | jq '.number') --path=$BOT_WORKSPACE
+$SCRIPT_PATH/mt-jenkins code-review --repo=$GITHUB_REPOSITORY --pr=$(cat $GITHUB_EVENT_PATH | jq '.number') --path=$BOT_WORKSPACE -vvv
