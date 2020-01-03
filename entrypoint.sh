@@ -22,5 +22,11 @@ cd $BOT_WORKSPACE
 # Alias PHP to the path our mt-jenkins scripts expect
 ln -s $(which php) /usr/bin/php
 
+PR=$(cat $GITHUB_EVENT_PATH | jq '.number')
+
+echo "Repo: $GITHUB_REPOSITORY"
+echo "PR: $PR"
+echo "Path: $BOT_WORKSPACE"
+
 # Run codesniffing
 $SCRIPT_PATH/mt-jenkins code-review --repo=$GITHUB_REPOSITORY --pr=$(cat $GITHUB_EVENT_PATH | jq '.number') --path=$BOT_WORKSPACE -vvv
