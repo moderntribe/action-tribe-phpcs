@@ -12,7 +12,7 @@ chown -R tr1b0t:tr1b0t /tmp
 gosu tr1b0t bash -c "git clone --depth 1 --branch master --single-branch https://tr1b0t:$GH_BOT_TOKEN@github.com/moderntribe/tribe-jenkins-scripts.git $SCRIPT_PATH"
 
 cd $SCRIPT_PATH
-gosu tr1b0t bash -c "composer update -o"
+gosu tr1b0t bash -c "composer install -o --ignore-platform-reqs"
 gosu tr1b0t bash -c "chmod +x mt-jenkins"
 sed "s/oauth_token: ''/oauth_token: '$GH_BOT_TOKEN'/" script-config-sample.yml > $SCRIPT_PATH/script-config.yml
 chown tr1b0t:tr1b0t $SCRIPT_PATH/script-config.yml
