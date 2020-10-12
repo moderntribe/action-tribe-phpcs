@@ -2,6 +2,10 @@
 
 Modern Tribe's PHPCS Code Review - GitHub Action
 
+## Dockerfile
+
+The container in use is currently on Docker Hub as `borkweb/tribe-phpcs`. The Dockerfile for that image is defined in our [packages repo](https://github.com/moderntribe/packages).
+
 ## Usage
 
 If you would like to add automated code sniffing to PRs on a new repository, there are a few things that must be set up first.
