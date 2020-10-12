@@ -1,4 +1,4 @@
-FROM docker.io/borkweb/tribe-phpcs:1.0
+FROM docker.io/borkweb/tribe-phpcs:1.1
 
 LABEL "com.github.actions.icon"="code"
 LABEL "com.github.actions.color"="purple"
