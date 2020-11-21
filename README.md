@@ -29,14 +29,14 @@ For PHPCS to function appropriately, it needs to be included in the repository v
 **Within `repositories`, add the following:**
 
 ```
-"repositories": {
+"repositories": [
     {
       "name": "moderntribe/TribalScents",
       "type": "github",
       "url": "https://github.com/moderntribe/TribalScents",
       "no-api": true
     }
-}
+]
 ```
 
 ### Create `phpcs.xml`
