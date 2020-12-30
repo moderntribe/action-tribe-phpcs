@@ -9,7 +9,7 @@ chown -R tr1b0t:tr1b0t /home/tr1b0t/
 chown -R tr1b0t:tr1b0t /tmp
 
 # Setup tribe-jenkins-scripts
-gosu tr1b0t bash -c "git clone --depth 1 --branch master --single-branch https://tr1b0t:$GH_BOT_TOKEN@github.com/moderntribe/tribe-jenkins-scripts.git $SCRIPT_PATH"
+gosu tr1b0t bash -c "git clone --depth 1 --branch master --single-branch https://tr1b0t:$GH_BOT_TOKEN@github.com/the-events-calendar/jenkins-scripts.git $SCRIPT_PATH"
 
 cd $SCRIPT_PATH
 gosu tr1b0t bash -c "composer install -o --ignore-platform-reqs"
