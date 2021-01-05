@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
 
 GH_BOT_TOKEN=$1
-BOT_WORKSPACE="/home/bot/bot-workspace"
-SCRIPT_PATH="/home/bot/jenkins-scripts"
+BOT_WORKSPACE="/home/tr1b0t/bot-workspace"
+SCRIPT_PATH="/home/tr1b0t/jenkins-scripts"
 
 rsync -a "$GITHUB_WORKSPACE/" "$BOT_WORKSPACE"
-chown -R bot:bot /home/bot/
-chown -R bot:bot /tmp
+chown -R tr1b0t:tr1b0t /home/tr1b0t/
+chown -R tr1b0t:tr1b0t /tmp
 
 # Setup tribe-jenkins-scripts
-gosu bot bash -c "git clone --depth 1 --branch master --single-branch https://$GH_BOT_USER:$GH_BOT_TOKEN@github.com/the-events-calendar/jenkins-scripts.git $SCRIPT_PATH"
+gosu tr1b0t bash -c "git clone --depth 1 --branch master --single-branch https://$GH_BOT_USER:$GH_BOT_TOKEN@github.com/the-events-calendar/jenkins-scripts.git $SCRIPT_PATH"
 
 cd $SCRIPT_PATH
-gosu bot bash -c "composer install -o --ignore-platform-reqs"
-gosu bot bash -c "chmod +x mt-jenkins"
+gosu tr1b0t bash -c "composer install -o --ignore-platform-reqs"
+gosu tr1b0t bash -c "chmod +x mt-jenkins"
 sed "s/oauth_token: ''/oauth_token: '$GH_BOT_TOKEN'/" script-config-sample.yml > $SCRIPT_PATH/script-config.yml
-chown bot:bot $SCRIPT_PATH/script-config.yml
+chown tr1b0t:tr1b0t $SCRIPT_PATH/script-config.yml
 
 cd $BOT_WORKSPACE
 
