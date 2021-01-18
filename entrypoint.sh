@@ -8,7 +8,7 @@ rsync -a "$GITHUB_WORKSPACE/" "$BOT_WORKSPACE"
 chown -R tr1b0t:tr1b0t /home/tr1b0t/
 chown -R tr1b0t:tr1b0t /tmp
 
-# Setup tribe-jenkins-scripts
+# Setup jenkins-scripts
 gosu tr1b0t bash -c "git clone --depth 1 --branch main --single-branch https://tec-bot:$GH_BOT_TOKEN@github.com/the-events-calendar/jenkins-scripts.git $SCRIPT_PATH"
 
 cd $SCRIPT_PATH
