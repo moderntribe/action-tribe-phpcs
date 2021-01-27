@@ -1,10 +1,10 @@
 # action-tribe-phpcs
 
-Modern Tribe's PHPCS Code Review - GitHub Action
+The Events Calendar's PHPCS Code Review - GitHub Action
 
 ## Dockerfile
 
-The container in use is currently on Docker Hub as `borkweb/tribe-phpcs`. The Dockerfile for that image is defined in our [packages repo](https://github.com/moderntribe/packages).
+The container in use is currently on Docker Hub as `borkweb/tribe-phpcs`. The Dockerfile for that image is defined in our [packages repo](https://github.com/the-events-calendar/packages).
 
 ## Usage
 
@@ -21,7 +21,7 @@ For PHPCS to function appropriately, it needs to be included in the repository v
     "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
     "wp-coding-standards/wpcs": "^2.1",
     "automattic/vipwpcs": "^2.0",
-    "moderntribe/tribalscents": "dev-master",
+    "the-events-calendar/tribalscents": "dev-master",
     ...
 }
 ```
@@ -31,9 +31,9 @@ For PHPCS to function appropriately, it needs to be included in the repository v
 ```
 "repositories": [
     {
-      "name": "moderntribe/TribalScents",
+      "name": "the-events-calendar/TribalScents",
       "type": "github",
-      "url": "https://github.com/moderntribe/TribalScents",
+      "url": "https://github.com/the-events-calendar/TribalScents",
       "no-api": true
     }
 ]
@@ -45,7 +45,7 @@ You'll need a `phpcs.xml` file to declare the rulesets the repository will be us
 
 ```xml
 <?xml version="1.0"?>
-<ruleset name="Modern Tribe Plugin Coding Standards">
+<ruleset name="The Events Calendar Plugin Coding Standards">
 	<rule ref="TribalScents"></rule>
 	<rule ref="WordPress-VIP-Go"></rule>
 	<rule ref="WordPress">
@@ -59,18 +59,18 @@ You'll need a `phpcs.xml` file to declare the rulesets the repository will be us
 
 ### Adding a GitHub Workflow
 
-You will need a GitHub Workflow to make this magic happen. You can [read about it](https://help.github.com/en/articles/configuring-a-workflow) in the GitHub docs. You could also just copy the `.github/workflows` directory from [The Events Calendar](https://github.com/moderntribe/the-events-calendar).
+You will need a GitHub Workflow to make this magic happen. You can [read about it](https://help.github.com/en/articles/configuring-a-workflow) in the GitHub docs. You could also just copy the `.github/workflows` directory from [The Events Calendar](https://github.com/the-events-calendar/the-events-calendar).
 
 #### Inputs
 
 ##### `github-bot-token`
 
-You will need to declare a secret of `GH_BOT_TOKEN` in your repo's Settings > Secrets. The token should be a Personal Access Token (preferably for a bot account) where that bot has access to the relevant repos in the Modern Tribe organization. The Token for tr1b0t is labeled as `tr1b0t GitHub OAuth Token` in our company 1Password vault.
+You will need to declare a secret of `GH_BOT_TOKEN` in your repo's Settings > Secrets. The token should be a Personal Access Token (preferably for a bot account) where that bot has access to the relevant repos in the The Events Calendar organization. The Token for tr1b0t is labeled as `tr1b0t GitHub OAuth Token` in our company 1Password vault.
 
 #### Example usage
 
 ```
-- uses: moderntribe/action-tribe-phpcs@master
+- uses: the-events-calendar/action-tribe-phpcs@master
   with:
     github_bot_token: ${{ secrets.GH_BOT_TOKEN }}
 ```
